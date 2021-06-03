@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class User {
+public  class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public abstract class User {
 	@Column(name = "password")
 	private String password;
 	
-	private String rePassword;
+	//private String rePassword;
 
 
 }
