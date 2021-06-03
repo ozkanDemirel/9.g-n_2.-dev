@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.kodlamaio.hrms.entities.abstracts.User;
+import com.kodlamaio.hrms.core.entities.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

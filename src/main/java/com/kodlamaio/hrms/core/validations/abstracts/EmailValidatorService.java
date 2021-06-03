@@ -1,6 +1,6 @@
 package com.kodlamaio.hrms.core.validations.abstracts;
 
-import com.kodlamaio.hrms.entities.abstracts.User;
+import com.kodlamaio.hrms.core.entities.User;
 
 public interface EmailValidatorService {
 

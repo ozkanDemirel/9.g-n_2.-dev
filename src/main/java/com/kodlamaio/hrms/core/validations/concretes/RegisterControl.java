@@ -2,7 +2,7 @@ package com.kodlamaio.hrms.core.validations.concretes;
 
 import java.util.regex.Pattern;
 
-import com.kodlamaio.hrms.entities.abstracts.User;
+import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
 
 public class RegisterControl {
