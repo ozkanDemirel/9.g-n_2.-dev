@@ -16,6 +16,7 @@ import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
 import com.kodlamaio.hrms.core.validations.abstracts.JobSeekerCheckService;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
+import com.kodlamaio.hrms.entities.concretes.School;
 
 @RestController
 @RequestMapping("/api/jobSeekers")
@@ -40,5 +41,6 @@ public class JobSeekerController {
 
 		return this.jobSeekerService.register(jobSeeker  );
 	}
+	
 
 }

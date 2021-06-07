@@ -20,6 +20,7 @@ import com.kodlamaio.hrms.core.validations.concretes.JobSeekerCheckManager;
 import com.kodlamaio.hrms.core.validations.concretes.RegisterControl;
 import com.kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
+import com.kodlamaio.hrms.entities.concretes.School;
 
 @Service
 public class JobSeekerManager implements JobSeekerService {
@@ -64,4 +65,8 @@ public class JobSeekerManager implements JobSeekerService {
 		}
 
 	}
+
+	
+
+	
 }

@@ -1,12 +1,16 @@
 package com.kodlamaio.hrms.entities.concretes;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kodlamaio.hrms.core.entities.User;
 
 import lombok.AllArgsConstructor;
@@ -37,7 +41,28 @@ public class JobSeeker extends User{
 	
 	@Column(name = "is_verified")
 	private boolean isVerified = false;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<School> schools;
 
-
+	@JsonIgnore
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<Experience> experiences;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<ForeignLanguage> foreignLanguages;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<ProgrammingSkill> programmingSkills;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<Teknology> teknology;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<Link> links; 
 
 }
