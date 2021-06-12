@@ -41,6 +41,12 @@ public class JobSeeker extends User{
 	@Column(name = "date_of_birth")
 	private Date dateOfBirth;
 	
+	@Column(name = "github")
+	private String github;
+	
+	@Column(name = "linkedin")
+	private String linkedin;
+	
 	@Column(name = "is_verified")
 	private boolean isVerified = false;
 	
