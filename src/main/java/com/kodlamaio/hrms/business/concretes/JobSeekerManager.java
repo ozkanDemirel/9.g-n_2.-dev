@@ -6,8 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kodlamaio.hrms.business.abstracts.ExperienceService;
+import com.kodlamaio.hrms.business.abstracts.ForeignLanguageService;
 import com.kodlamaio.hrms.business.abstracts.JobSeekerService;
-import com.kodlamaio.hrms.core.adapters.MernisAdapter;
+import com.kodlamaio.hrms.business.abstracts.LinkService;
+import com.kodlamaio.hrms.business.abstracts.ProgrammingSkillService;
+import com.kodlamaio.hrms.business.abstracts.SchoolService;
+import com.kodlamaio.hrms.business.abstracts.TechnologyService;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.ErrorResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
@@ -20,7 +25,7 @@ import com.kodlamaio.hrms.core.validations.concretes.JobSeekerCheckManager;
 import com.kodlamaio.hrms.core.validations.concretes.RegisterControl;
 import com.kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
-import com.kodlamaio.hrms.entities.concretes.School;
+import com.kodlamaio.hrms.entities.dtos.CvDto;
 
 @Service
 public class JobSeekerManager implements JobSeekerService {
@@ -28,12 +33,26 @@ public class JobSeekerManager implements JobSeekerService {
 	private JobSeekerDao jobSeekerDao;
 	private JobSeekerCheckService check;
 	private EmailValidatorService emailValidatorService;
+	private ExperienceService experienceService;
+	private ForeignLanguageService foreignLanguageService;
+	private LinkService linkService;
+	private ProgrammingSkillService programmingSkillService;
+	private SchoolService schoolService;
+	private TechnologyService technologyService;
+	
 
 	@Autowired
-	public JobSeekerManager(JobSeekerDao jobSeekerDao ) {
+	public JobSeekerManager(JobSeekerDao jobSeekerDao, ExperienceService experienceService, ForeignLanguageService foreignLanguageService,
+			LinkService linkService, ProgrammingSkillService programmingSkillService, SchoolService schoolService, TechnologyService technologyService ) {
 		this.jobSeekerDao = jobSeekerDao;
 		this.check = new JobSeekerCheckManager();
 		this.emailValidatorService = new EmailValidatorManager();
+		this.experienceService = experienceService;
+		this.foreignLanguageService= foreignLanguageService;
+		this.linkService = linkService;
+		this.programmingSkillService= programmingSkillService;
+		this.schoolService= schoolService;
+		this.technologyService=technologyService;
 		}
 
 	@Override
@@ -64,6 +83,19 @@ public class JobSeekerManager implements JobSeekerService {
 			
 		}
 
+	}
+
+	@Override
+	public DataResult<CvDto> getCvById(int id) {
+		JobSeeker jobSeeker = this.jobSeekerDao.getById(id);
+		CvDto cv = new CvDto();
+		cv.experiences=jobSeeker.getExperiences();
+		cv.languages=jobSeeker.getForeignLanguages();
+		cv.links=jobSeeker.getLinks();
+		cv.programingSkills=jobSeeker.getProgrammingSkills();
+		cv.schools=jobSeeker.getSchools();
+		cv.technologies=jobSeeker.getTeknology();
+		return null;
 	}
 
 	

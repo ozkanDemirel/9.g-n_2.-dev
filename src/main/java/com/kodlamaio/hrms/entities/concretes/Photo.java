@@ -19,6 +19,10 @@ public class Photo {
 
     @Basic
     private Date createdAt = new Date();
+    
+    @OneToOne(optional=false,fetch=FetchType.LAZY)
+    @JoinColumn(name = "job_seeker_id", referencedColumnName = "user_id")
+	private JobSeeker jobSeeker;
 
     public Long getId() {
         return id;

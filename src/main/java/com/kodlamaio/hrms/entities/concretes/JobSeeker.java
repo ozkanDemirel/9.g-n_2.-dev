@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -59,10 +61,18 @@ public class JobSeeker extends User{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "jobSeeker")
-	private List<Teknology> teknology;
+	private List<Technology> teknology;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "jobSeeker")
 	private List<Link> links; 
+	
+	@JsonIgnore
+	@OneToOne(mappedBy = "jobSeeker", optional=false, fetch=FetchType.LAZY)
+	private Photo photo;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<CoverLetter>  coverLetters;
 
 }

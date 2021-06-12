@@ -9,11 +9,13 @@ import com.kodlamaio.hrms.core.utilities.results.Result;
 import com.kodlamaio.hrms.core.validations.abstracts.JobSeekerCheckService;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
 import com.kodlamaio.hrms.entities.concretes.School;
+import com.kodlamaio.hrms.entities.dtos.CvDto;
 
 public interface JobSeekerService {
 	
 	Result register (JobSeeker jobSeeker) throws NumberFormatException, RemoteException ;
-	public DataResult<List<JobSeeker>> getAll();
+	DataResult<List<JobSeeker>> getAll();
+	DataResult<CvDto>  getCvById(int id);
 	
 	
 	

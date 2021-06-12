@@ -17,6 +17,7 @@ import com.kodlamaio.hrms.core.utilities.results.Result;
 import com.kodlamaio.hrms.core.validations.abstracts.JobSeekerCheckService;
 import com.kodlamaio.hrms.entities.concretes.JobSeeker;
 import com.kodlamaio.hrms.entities.concretes.School;
+import com.kodlamaio.hrms.entities.dtos.CvDto;
 
 @RestController
 @RequestMapping("/api/jobSeekers")
@@ -42,5 +43,10 @@ public class JobSeekerController {
 		return this.jobSeekerService.register(jobSeeker  );
 	}
 	
+	@GetMapping("/getCvById")
+	public DataResult<CvDto> getCvById(int id){
+		return this.jobSeekerService.getCvById(id);
+		
+	}
 
 }

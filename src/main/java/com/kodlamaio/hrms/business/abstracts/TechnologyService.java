@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
-import com.kodlamaio.hrms.entities.concretes.Teknology;
+import com.kodlamaio.hrms.entities.concretes.Technology;
 
-public interface TeknologyService {
+public interface TechnologyService {
 	
-	Result add(Teknology teknology);
-	DataResult<List<Teknology>> getAllByJobSeekerId(int id);
+	Result add(Technology technology);
+	DataResult<List<Technology>> getAllByJobSeekerId(int id);
 }

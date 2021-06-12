@@ -1,6 +1,5 @@
 package com.kodlamaio.hrms.api.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,31 +9,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kodlamaio.hrms.business.abstracts.TeknologyService;
+import com.kodlamaio.hrms.business.abstracts.CoverLetterService;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
-import com.kodlamaio.hrms.entities.concretes.Teknology;
+import com.kodlamaio.hrms.entities.concretes.CoverLetter;
 
 @RestController
-@RequestMapping("/api/teknologies")
-public class TeknologyController {
+@RequestMapping("/api/CoverLetterControllers")
+public class CoverLetterController {
 	
-	private TeknologyService teknologyService;
+	private CoverLetterService coverLetterService;
 
 	@Autowired
-	public TeknologyController(TeknologyService teknologyService) {
-		this.teknologyService = teknologyService;
+	public CoverLetterController(CoverLetterService coverLetterService) {
+		this.coverLetterService = coverLetterService;
 	}
-	
-	@GetMapping("/getAllByJobSeekerId")
-	public DataResult<List<Teknology>> getAllByJobSeekerId(@RequestParam int id) {
-		return this.teknologyService.getAllByJobSeekerId(id);
-	}
-	
+
 	@PostMapping("/add")
-	public Result add(@RequestBody Teknology teknology) {
+	public Result add(@RequestBody CoverLetter coverLetter) {
 		
-		return this.teknologyService.add(teknology);
+		return this.coverLetterService.add(coverLetter);
 	}
+
+	@GetMapping("getById")
+	public DataResult<CoverLetter> getById(@RequestParam int id) {
+		return this.coverLetterService.getById(id);
+	}
+	
 
 }

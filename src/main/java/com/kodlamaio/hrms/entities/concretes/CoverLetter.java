@@ -1,5 +1,7 @@
 package com.kodlamaio.hrms.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,19 +18,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "teknologies")
-@Data
-public class Teknology {
+@Table(name = "cover_letters")
+public class CoverLetter {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "teknology_name")
-	private String teknologyName;
+	@Column(name = "text")
+	private String text;
 	
 	@JsonIgnore
 	@ManyToOne()
