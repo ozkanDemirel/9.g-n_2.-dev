@@ -37,4 +37,10 @@ public class ForeignLanguageManager implements ForeignLanguageService{
 		return new SuccessDataResult<List<ForeignLanguage>>(this.foreignLanguageDao.getAllByJobSeekerId(id),"Yabancı Diller Listelendi");
 	}
 
+
+	@Override
+	public DataResult<List<ForeignLanguage>> getAll() {
+		return new SuccessDataResult<List<ForeignLanguage>>(this.foreignLanguageDao.findAll());
+	}
+
 }

@@ -8,6 +8,8 @@ import com.kodlamaio.hrms.entities.concretes.Technology;
 
 public interface TechnologyService {
 	
-	Result add(Technology technology);
+	DataResult<List<Technology>> getAll();
 	DataResult<List<Technology>> getAllByJobSeekerId(int id);
+	Result add(Technology technology);
+	
 }

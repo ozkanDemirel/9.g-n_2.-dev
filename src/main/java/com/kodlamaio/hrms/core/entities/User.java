@@ -7,16 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.kodlamaio.hrms.entities.concretes.Image;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
@@ -33,17 +34,27 @@ public  class User {
 	
 	@Email
 	@NotBlank(message = "Email Alanı Boş Geçilemez")
-	@NotNull(message = "Email Alanı Null Olamaz")
 	@Column(name = "email")
 	private String email;
 	
 	@NotBlank(message = "Password Alanı Boş Geçilemez")
-	@NotNull(message = "Password Alanı Null Olamaz")
-	@Min(value = 6, message = "Şifre En az 6 Karakter Uzunluğunda Olmalıdır")
+	@Size(message = "Şifre En az 6 Karakter Uzunluğunda Olmalıdır")
 	@Column(name = "password")
 	private String password;
 	
-	//private String rePassword;
+	@NotBlank(message = "Şifre tekrarı boş olamaz")
+	@Column(name = "password_again")
+	private String password_again;
+
+	/*@Column(name = "is_verify_email")
+	private boolean isVerifyEmail;*/
+
+	@OneToOne(mappedBy = "user")
+	private Image image;
+
+	public User(int userId) {
+		this.id = userId;
+	}
 
 
 }

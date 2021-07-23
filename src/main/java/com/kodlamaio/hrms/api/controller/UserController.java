@@ -55,7 +55,7 @@ public class UserController {
 	 }
 
 	@GetMapping("/findByEmail")
-	public DataResult<User> findByEmail(String email) {
+	public DataResult<User> findByEmail(@RequestParam String email) {
 		return this.userService.findByEmail(email);
 				
 	}

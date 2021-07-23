@@ -43,6 +43,10 @@ public class School {
 	@Column(name = "end_at")
 	private LocalDate endAt;
 	
+	@ManyToOne()
+	@JoinColumn(name="cv_id")
+	private Cv cv;
+	
 	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "job_seeker_id")

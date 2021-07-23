@@ -2,12 +2,11 @@ package com.kodlamaio.hrms.business.abstracts;
 
 import java.util.List;
 
-import com.kodlamaio.hrms.core.entities.User;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
+import com.kodlamaio.hrms.entities.concretes.Cv;
 
-public interface UserService {
-	Result add(User user);
-	DataResult<User> findByEmail(String email);
-	DataResult<List<User>> getAll();
+public interface CvService {
+	Result add(Cv cv);
+	DataResult<List<Cv>> getByJobSeekerId(int id);
 }

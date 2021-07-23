@@ -10,4 +10,5 @@ import com.kodlamaio.hrms.entities.concretes.School;
 
 public interface JobSeekerDao extends JpaRepository<JobSeeker, Integer> {
 		JobSeeker getById(int id);
+		//JobSeeker geyByIdentityNumber(String identityNumber);
 }

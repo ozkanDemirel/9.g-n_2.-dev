@@ -34,6 +34,10 @@ public class ForeignLanguage {
 	@Column(name = "level")
 	private short level;
 	
+	@ManyToOne()
+	@JoinColumn(name="cv_id")
+	private Cv cv;
+	
 	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "job_seeker_id")

@@ -85,7 +85,12 @@ public class JobSeekerManager implements JobSeekerService {
 
 	}
 
-	@Override
+	/*@Override
+	public DataResult<JobSeeker> geyByIdentityNumber(String identityNumber) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.geyByIdentityNumber(identityNumber));
+	}*/
+
+	/*@Override
 	public DataResult<CvDto> getCvById(int id) {
 		JobSeeker jobSeeker = this.jobSeekerDao.getById(id);
 		CvDto cv = new CvDto();
@@ -96,7 +101,7 @@ public class JobSeekerManager implements JobSeekerService {
 		cv.schools=jobSeeker.getSchools();
 		cv.technologies=jobSeeker.getTeknology();
 		return null;
-	}
+	}*/
 
 	
 

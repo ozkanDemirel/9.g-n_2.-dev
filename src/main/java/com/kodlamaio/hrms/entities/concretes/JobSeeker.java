@@ -6,10 +6,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -28,16 +32,20 @@ import lombok.NoArgsConstructor;
 @PrimaryKeyJoinColumn(name ="user_id")
 public class JobSeeker extends User{
 	
-	
+	@NotBlank(message = "Bu Alan boş geçilemez")
 	@Column(name = "first_name")
 	private String firstName;
 	
+	@NotBlank(message = "Bu Alan boş geçilemez")
 	@Column(name = "last_name")
 	private String lastName;
 	
+	@Size(min = 11,max = 11,message = "TC Kimlik Numarranız 11 haneli olmalıdır.")
+	@NotBlank(message = "Bu Alan boş geçilemez")
 	@Column(name = "national_id")
 	private String identityNumber;
 	
+	@NotBlank(message = "Bu Alan boş geçilemez")
 	@Column(name = "date_of_birth")
 	private Date dateOfBirth;
 	
@@ -49,6 +57,10 @@ public class JobSeeker extends User{
 	
 	@Column(name = "is_verified")
 	private boolean isVerified = false;
+	
+	@ManyToOne()
+	@JoinColumn(name="cv_id")
+	private Cv cv;
 	
 	@OneToMany(mappedBy = "jobSeeker")
 	private List<School> schools;

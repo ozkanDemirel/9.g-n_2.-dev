@@ -1,6 +1,5 @@
 package com.kodlamaio.hrms.business.abstracts;
 
-import java.util.Date;
 import java.util.List;
 
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
@@ -12,6 +11,8 @@ public interface JobAdvertService {
 	DataResult<List<JobAdvert>> getAllOpenJobAdvertList();
 	DataResult<List<JobAdvert>> getAllOrderByPublicationDateDesc();
 	DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer();
-	Result Add (JobAdvert jobAdvert);
+	DataResult<List<JobAdvert>> getAll();
+	Result add (JobAdvert jobAdvert);
 	Result delete(int id );
+	Result update (JobAdvert jobAdvert);
 }

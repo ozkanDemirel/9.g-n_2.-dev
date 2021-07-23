@@ -15,7 +15,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.Singleton;
 import com.cloudinary.utils.ObjectUtils;
 import com.kodlamaio.hrms.core.validations.concretes.PhotoUploadValidator;
-import com.kodlamaio.hrms.dataAccess.PhotoDao;
+import com.kodlamaio.hrms.dataAccess.abstracts.PhotoDao;
 import com.kodlamaio.hrms.entities.concretes.Photo;
 import com.kodlamaio.hrms.entities.concretes.PhotoUpload;
 

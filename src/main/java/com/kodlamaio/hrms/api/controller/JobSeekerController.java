@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,7 @@ import com.kodlamaio.hrms.entities.dtos.CvDto;
 
 @RestController
 @RequestMapping("/api/jobSeekers")
+@CrossOrigin
 public class JobSeekerController {
 
 	private JobSeekerService jobSeekerService;
@@ -43,10 +45,10 @@ public class JobSeekerController {
 		return this.jobSeekerService.register(jobSeeker  );
 	}
 	
-	@GetMapping("/getCvById")
+/*	@GetMapping("/getCvById")
 	public DataResult<CvDto> getCvById(int id){
 		return this.jobSeekerService.getCvById(id);
 		
-	}
+	}*/
 
 }

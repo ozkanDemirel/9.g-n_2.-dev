@@ -27,18 +27,6 @@ public class JobAdvert {
 	@Column(name = "id")
 	private int id;
 	
-	@ManyToOne()
-	@JoinColumn(name = "employer_id")
-	private Employer employer;
-	
-	@ManyToOne()
-	@JoinColumn(name = "job_position_id")
-	private JobPosition jobPosition;
-	
-	@ManyToOne()
-	@JoinColumn(name = "city_id")
-	private City city;
-	
 	@Column(name = "description")
 	private String description;
 	
@@ -68,4 +56,24 @@ public class JobAdvert {
 	
 	@Column(name = "salary_max")
 	private int salaryMax;
+	
+	@ManyToOne()
+	@JoinColumn(name = "employer_id")
+	private Employer employer;
+	
+	@ManyToOne()
+	@JoinColumn(name = "job_position_id")
+	private JobPosition jobPosition;
+	
+	@ManyToOne()
+	@JoinColumn(name = "city_id")
+	private City city;
+	
+	@ManyToOne()
+	@JoinColumn(name = "work_time_id")
+	private WorkTime workTime;
+	
+	@ManyToOne()
+	@JoinColumn(name = "work_type_id")
+	private WorkType workType;
 }

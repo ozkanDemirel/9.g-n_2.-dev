@@ -8,7 +8,5 @@ import org.springframework.data.jpa.repository.Query;
 import com.kodlamaio.hrms.entities.concretes.School;
 
 public interface SchoolDao extends JpaRepository<School, Integer>{
-	
-
 	List<School> getAllByJobSeekerIdOrderByEndAtDesc(int id);
 }

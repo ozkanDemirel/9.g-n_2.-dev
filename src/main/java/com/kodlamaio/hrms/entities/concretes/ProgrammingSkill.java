@@ -29,6 +29,10 @@ public class ProgrammingSkill {
 	@Column(name = "programming_language")
 	private String programmingLanguage;
 	
+	@ManyToOne()
+	@JoinColumn(name="cv_id")
+	private Cv cv;
+	
 	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "job_seeker_id")

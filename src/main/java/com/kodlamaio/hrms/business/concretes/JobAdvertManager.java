@@ -40,7 +40,7 @@ public class JobAdvertManager implements JobAdvertService{
 	}
 
 	@Override
-	public Result Add(JobAdvert jobAdvert) {
+	public Result add(JobAdvert jobAdvert) {
 		this.jobAdvertDao.save(jobAdvert);
 		return new SuccessResult("İş İlanı Eklendi");
 	}
@@ -49,6 +49,16 @@ public class JobAdvertManager implements JobAdvertService{
 	public Result delete(int id) {
 		this.jobAdvertDao.deleteById(id);
 		return new SuccessResult("İş İlanı Başarıyla Silindi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getAll() {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll());
+	}
+
+	@Override
+	public Result update(JobAdvert jobAdvert) {
+		return null;
 	}
 
 }

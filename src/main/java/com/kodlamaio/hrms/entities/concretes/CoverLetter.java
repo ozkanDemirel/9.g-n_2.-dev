@@ -32,6 +32,10 @@ public class CoverLetter {
 	@Column(name = "text")
 	private String text;
 	
+	@ManyToOne()
+	@JoinColumn(name="cv_id")
+	private Cv cv;
+	
 	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "job_seeker_id")

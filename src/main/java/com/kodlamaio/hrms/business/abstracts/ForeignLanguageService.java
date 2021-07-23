@@ -11,5 +11,6 @@ public interface ForeignLanguageService {
 	
 	Result add(ForeignLanguage foreignLanguage);
 	DataResult<List<ForeignLanguage>> getAllByJobSeekerId(int id);
+	DataResult<List<ForeignLanguage>> getAll();
 
 }

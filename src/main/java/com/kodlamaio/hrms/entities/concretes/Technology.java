@@ -30,7 +30,11 @@ public class Technology {
 	@Column(name = "teknology_name")
 	private String teknologyName;
 	
-	@JsonIgnore
+	@ManyToOne()
+	@JoinColumn(name="cv_id")
+	private Cv cv;
+	
+	//@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "job_seeker_id")
 	private JobSeeker jobSeeker;

@@ -3,6 +3,7 @@ package com.kodlamaio.hrms.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,12 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kodlamaio.hrms.business.abstracts.JobAdvertService;
 import com.kodlamaio.hrms.core.utilities.results.DataResult;
 import com.kodlamaio.hrms.core.utilities.results.Result;
+import com.kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import com.kodlamaio.hrms.core.utilities.results.SuccessResult;
 import com.kodlamaio.hrms.entities.concretes.JobAdvert;
 
 
 @RestController
 @RequestMapping("/api/jobAdverts")
+@CrossOrigin
 public class JobAdvertController {
 	
 	private JobAdvertService jobAdvertService;
@@ -46,7 +49,7 @@ public class JobAdvertController {
 	@PostMapping("/add")
 	public Result Add(@RequestBody JobAdvert jobAdvert) {
 		
-		return this.jobAdvertService.Add(jobAdvert);
+		return this.jobAdvertService.add(jobAdvert);
 	}
 	
 	@PostMapping("/delete")
@@ -55,4 +58,8 @@ public class JobAdvertController {
 		return new SuccessResult("İş İlanı Başarıyla Silindi");
 	}
 	
+	@GetMapping("/getAll")
+	public DataResult<List<JobAdvert>> getAll() {
+		return this.jobAdvertService.getAll();
+	}
 }

@@ -15,7 +15,7 @@ public interface JobSeekerService {
 	
 	Result register (JobSeeker jobSeeker) throws NumberFormatException, RemoteException ;
 	DataResult<List<JobSeeker>> getAll();
-	DataResult<CvDto>  getCvById(int id);
+	//DataResult<JobSeeker> geyByIdentityNumber(String identityNumber);
 	
 	
 	

@@ -36,4 +36,15 @@ public class TechnologyManager implements TechnologyService {
 		return new SuccessResult("Kayıt Başarılı");
 	}
 
+
+	@Override
+	public DataResult<List<Technology>> getAll() {
+		return new SuccessDataResult<List<Technology>>(this.technologyDao.findAll());
+	}
+
+
+	
+	
+	
+
 }
